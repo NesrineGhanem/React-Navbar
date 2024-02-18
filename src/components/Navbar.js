@@ -1,23 +1,37 @@
-import React from 'react';
-import { MenuItems } from "./Menuittems"
-import './Navbar.css'
-function Navbar () {
-    return(
-        <>
-        <nav className="NavbarItems">
-         <h1 className="navbar-logo">React</h1>
-        <ul className="nav-menu">
-            {MenuItems.map((item,index) =>{
-                return (
-                    <li key={index}>
-                     <a className={item.cName} href={item.url}>
-                        {item.title}
-                     </a>
-                    </li>
-                    ) })}
-        </ul>
-        </nav>
-        </>
-    )
+import { Button, Form } from 'react-bootstrap';
+import Container from 'react-bootstrap/Container';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+
+function BasicNav() {
+  return (
+    <Navbar expand="lg" className="bg-body-tertiary" bg="dark" data-bs-theme="dark">
+      <Container>
+        <Navbar.Brand href="#home">React</Navbar.Brand>
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link href="#home">Home</Nav.Link>
+            <Nav.Link href="#link">Services</Nav.Link>
+            <Nav.Link href="#link">Products</Nav.Link>
+            <Nav.Link href="#link">Contact us</Nav.Link>
+            <Nav.Link href="#link">Sign up</Nav.Link>
+           
+          </Nav>
+        </Navbar.Collapse>
+        <Form className="d-flex">
+            <Form.Control
+              type="search"
+              placeholder="Search"
+              className="me-2"
+              aria-label="Search"
+            />
+            <Button variant="outline-success">Search</Button>
+
+          </Form>
+      </Container>
+    </Navbar>
+  );
 }
-export default Navbar;
+
+export default BasicNav;
